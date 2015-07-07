@@ -8,7 +8,8 @@ class Cow(Animal):
         self._type = "Cow"
 
 def main():
-    new_cow = Cow()
+    name = input("What name")
+    new_cow = Cow(name)
     print(new_cow.report())
     manual_grow(new_cow)
     print(new_cow.report())

@@ -4,7 +4,7 @@ class AnimalGraphicsPixmapItem(FieldItemGraphicsPixmapItem):
     """this class provides a pixmap item with a preset image for the animal"""
 
     #constructor
-    def __init__(self.graphics_list):
+    def __init__(self,graphics_list):
         super().__init__(graphics_list)
 
         self.animal = None

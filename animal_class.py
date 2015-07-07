@@ -26,7 +26,7 @@ class Animal:
         self._update_status()
 
     def _update_status(self):
-        elif self._weight > 10:
+        if self._weight > 10:
             self._status = "Prime"
         elif self._weight > 5:
             self._status = "Fine"
