@@ -19,3 +19,15 @@ class AnimalGraphicsPixmapItem(FieldItemGraphicsPixmapItem):
         elif self.animal._status == "Prime":
             self.setPixmap(QPixmap(self.available_graphics[3]).scaledToWidth(25,1))
 
+    def _remove_animal(self):
+        self.scene().remove_animal(self)
+
+    def contextMenuEvent(self,event):
+        menu = QMenu("Animal")
+        remove = menu.addAction("Remove Animal")
+
+        #connection
+        remove.triggered.connect(self._remove_animal)
+
+        #run menu
+        menu.exec_(event.screenPos())
