@@ -3,7 +3,7 @@ from potato_class import *
 
 import field_resources
 
-class potatoGraphicsPixmapItem(CropGraphicsPixmapItem):
+class PotatoGraphicsPixmapItem(CropGraphicsPixmapItem):
     """this class provides a graphical representation of a potato crop"""
 
     #constructor

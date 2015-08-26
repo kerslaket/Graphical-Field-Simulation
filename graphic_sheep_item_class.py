@@ -3,7 +3,7 @@ from sheep_class import *
 
 import field_resources
 
-class sheepGraphicalPixmapItem(AnimalGraphicsPixmapItem):
+class SheepGraphicsPixmapItem(AnimalGraphicsPixmapItem):
     """this class provides a graphical representation of a sheep"""
 
     #constructor
