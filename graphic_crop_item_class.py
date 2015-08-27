@@ -21,6 +21,9 @@ class CropGraphicsPixmapItem(FieldItemGraphicsPixmapItem):
         elif self.crop._status == "Old":
             self.setPixmap(QPixmap(self.available_graphics[4]).scaledToWidth(25,1))
 
+    def grow(self,light,water):
+        self.crop.grow(light,water)
+
     def _harvest_crop(self):
         self.scene().harvest_crop(self)
         

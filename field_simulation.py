@@ -1,4 +1,5 @@
 import sys
+import random
 
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
@@ -9,6 +10,7 @@ from graphic_potato_item_class import *
 from graphic_cow_item_class import *
 from graphic_sheep_item_class import *
 from graphic_drag_label_class import *
+from field_manual_grow_dialog_class import *
 
 class FieldWindow(QMainWindow) :
     """this class creates a main window to observe the growth of a simulated field"""
@@ -68,6 +70,27 @@ class FieldWindow(QMainWindow) :
         self.main_widget = QWidget()
         self.main_widget.setLayout(self.layout)
         self.setCentralWidget(self.main_widget)
+
+        #connections
+        self.field_automatic_grow_button.clicked.connect(self.automatically_grow)
+        self.field_manual_grow_button.clicked.connect(self.manually_grow)
+
+    def automatically_grow(self):
+        for days in range(30):
+            light = random.randint(1,10)
+            water = random.randint(1,10)
+            food = random.randint(1,100)
+            self.field_graphics_view.scene().field.grow(light,food,water)
+        self.field_graphics_view.scene().update_status()
+
+    def manually_grow(self):
+        dialog = ManualGrowDialog()
+        dialog.exec_()
+        light,water,food = dialog.get_values()
+        self.field_graphics_view.scene().field.grow(light,food,water)
+        self.field_graphics_view.scene().update_status()
+        
+        
 
 def main():
     field_simulation = QApplication(sys.argv) #create new application

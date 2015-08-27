@@ -22,6 +22,12 @@ class AnimalGraphicsPixmapItem(FieldItemGraphicsPixmapItem):
     def _remove_animal(self):
         self.scene().remove_animal(self)
 
+    def needs(self):
+        return self.animal.needs()
+
+    def grow(self,feed,water):
+        self.animal.grow(feed,water)
+
     def contextMenuEvent(self,event):
         menu = QMenu("Animal")
         remove = menu.addAction("Remove Animal")
